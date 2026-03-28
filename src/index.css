@@ -1,0 +1,164 @@
+:root {
+  --neon-blue: #00f3ff;
+  --neon-pink: #ff00ea;
+  --neon-purple: #9d00ff;
+  --bg-dark: #09090b;
+  --panel-bg: rgba(20, 20, 25, 0.7);
+  
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+  background-color: var(--bg-dark);
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(157, 0, 255, 0.1), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(0, 243, 255, 0.1), transparent 25%);
+}
+
+#root {
+  width: 100%;
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--panel-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+  letter-spacing: 2px;
+}
+
+.wallet-btn {
+  background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink)) !important;
+  transition: all 0.3s ease !important;
+  border-radius: 8px !important;
+  font-weight: bold !important;
+}
+
+.wallet-btn:hover {
+  box-shadow: 0 0 15px var(--neon-pink) !important;
+  transform: translateY(-2px) !important;
+}
+
+.game-wrapper {
+  position: relative;
+  background: var(--panel-bg);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8),
+              inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+canvas {
+  background: #000;
+  border-radius: 8px;
+  display: block;
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.overlay h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+}
+
+.overlay .score-display {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #aaa;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+  color: white;
+  transition: all 0.2s;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+  margin: 10px;
+}
+
+.btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #444;
+  box-shadow: none;
+}
+
+.tx-status {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: var(--neon-pink);
+  text-align: center;
+}
+
+.tx-link {
+  color: var(--neon-blue);
+  text-decoration: none;
+}
+.tx-link:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
