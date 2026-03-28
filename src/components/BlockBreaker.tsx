@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Transaction, TransactionInstruction, PublicKey } from '@solana/web3.js';
 import { Loader2 } from 'lucide-react';
@@ -23,7 +23,7 @@ type GameState = 'start' | 'playing' | 'gameover' | 'won';
 export default function BlockBreaker() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { connection } = useConnection();
-  const { publicKey, sendTransaction, signTransaction } = useWallet();
+  const { publicKey, sendTransaction } = useWallet();
 
   const [gameState, setGameState] = useState<GameState>('start');
   const [score, setScore] = useState(0);
