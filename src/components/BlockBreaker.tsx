@@ -183,7 +183,7 @@ export default function BlockBreaker() {
             
             // Generate neon colors based on row
             const hue = (r * 40 + 200) % 360;
-            ctx.fillStyle = \`hsl(\${hue}, 100%, 60%)\`;
+            ctx.fillStyle = `hsl(${hue}, 100%, 60%)`;
             ctx.fill();
             ctx.closePath();
           }
@@ -308,7 +308,7 @@ export default function BlockBreaker() {
                   <div className="tx-status">
                      Score successfully recorded on Devnet!<br/>
                      <a 
-                       href={\`https://explorer.solana.com/tx/\${txSignature}?cluster=devnet\`} 
+                       href={`https://explorer.solana.com/tx/${txSignature}?cluster=devnet`} 
                        target="_blank" 
                        rel="noopener noreferrer"
                        className="tx-link"
